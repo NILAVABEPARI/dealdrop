@@ -32,10 +32,7 @@ export default function AuthButton({ user }) {
                 Sign In
             </Button>
 
-            <AuthModal
-                isOpen={showAuthModal}
-                onClose={() => setShowAuthModal(false)}
-            />
+            <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
         </>
     );
 }
