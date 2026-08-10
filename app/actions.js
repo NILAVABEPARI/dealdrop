@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@/utils/supabase/server";
-// import { scrapeProduct } from "@/lib/firecrawl";
+import { scrapeProduct } from "@/lib/firecrawl";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -14,9 +14,7 @@ export async function addProduct(formData) {
 
     try {
         const supabase = await createClient();
-        const {
-            data: { user },
-        } = await supabase.auth.getUser();
+        const { data: { user } } = await supabase.auth.getUser();
 
         if (!user) {
             return { error: "Not authenticated" };
@@ -67,8 +65,7 @@ export async function addProduct(formData) {
         if (error) throw error;
 
         // Add to price history if it's a new product OR price changed
-        const shouldAddHistory =
-            !isUpdate || existingProduct.current_price !== newPrice;
+        const shouldAddHistory = !isUpdate || existingProduct.current_price !== newPrice;
 
         if (shouldAddHistory) {
             await supabase.from("price_history").insert({
