@@ -3,11 +3,13 @@ import { TrendingDown, Shield, Bell, Rabbit } from "lucide-react";
 import AddProductForm from "@/components/AddProductForm";
 import AuthButton from "@/components/AuthButton";
 import { createClient } from "@/lib/server";
+import { getProducts } from "./actions";
+import ProductCard from "@/components/ProductCard";
 
 export default async function Home() {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
-  const products = [];
+  const products = user ? await getProducts() : [];
   const FEATURES = [
     {
       icon: Rabbit,
@@ -81,7 +83,7 @@ export default async function Home() {
       </section>
 
       {/* Products Grid */}
-      {/* {user && products.length > 0 && (
+      {user && products.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 pb-20">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-2xl font-bold text-gray-900">
@@ -98,7 +100,7 @@ export default async function Home() {
             ))}
           </div>
         </section>
-      )} */}
+      )}
 
       {/* Empty State */}
       {user && products.length === 0 && (
