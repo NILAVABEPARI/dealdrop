@@ -23,7 +23,6 @@ export default function ProductCard({ product }) {
             toast.error(result.error);
         } else {
             toast.success(result.message || "Product deleted successfully!");
-            // setUrl("");
         }
         setDeleting(false);
     };
@@ -80,7 +79,7 @@ export default function ProductCard({ product }) {
                         )}
                     </Button>
 
-                    <Button variant="outline" size="sm" className="gap-3">
+                    <Button variant="outline" size="sm" className="gap-1">
                         <Link href={product.url} target="_blank" rel="noopener noreferrer">
                             <ExternalLink className="w-4 h-4" />
                             View Product

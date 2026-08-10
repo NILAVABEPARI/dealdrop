@@ -9,6 +9,7 @@ export default function AuthModal({ isOpen, onClose }) {
 
     const handleGoogleLogin = async () => {
         const { origin } = window.location;
+        console.log('origin -- ', origin);
 
         await supabase.auth.signInWithOAuth({
             provider: "google",
