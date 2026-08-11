@@ -81,7 +81,7 @@ export default function ProductCard({ product }) {
                     </Button>
 
                     <Button variant="outline" size="sm" className="gap-1">
-                        <Link href={product.url} target="_blank" rel="noopener noreferrer">
+                        <Link href={product.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                             <ExternalLink className="w-4 h-4" />
                             View Product
                         </Link>
