@@ -2,7 +2,7 @@ import Image from "next/image";
 import { TrendingDown, Shield, Bell, Rabbit } from "lucide-react";
 import AddProductForm from "@/components/AddProductForm";
 import AuthButton from "@/components/AuthButton";
-import { createClient } from "@/lib/server";
+import { createClient } from "@/utils/supabase/server";
 import { getProducts } from "./actions";
 import ProductCard from "@/components/ProductCard";
 

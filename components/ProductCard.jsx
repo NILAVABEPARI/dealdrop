@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Trash2, TrendingDown, ChevronDown, ChevronUp } from "lucide-react";
 import Link from "next/link";
+import { toast } from "sonner";
 
 export default function ProductCard({ product }) {
     const [showChart, setShowChart] = useState(false);
